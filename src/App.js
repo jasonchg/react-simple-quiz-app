@@ -26,10 +26,13 @@ const App = () => {
   }, [])
 
   const handleAnswer = (answer) => {
-    setShowCorrectAnswer(true)
-    if (answer === questions[currentIndex].correct_answer) {
-      setScore(score + 1)
+    if (!showCorrectAnswer) {
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1)
+      }
     }
+
+    setShowCorrectAnswer(true)
   }
 
   const handleNext = () => {
